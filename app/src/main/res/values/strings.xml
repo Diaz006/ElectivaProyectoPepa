@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Proyecto Final Electiva</string>
+    <string name="title_activity_principal">ActivityPrincipal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">BGW Corona News APP</string>
+    <string name="nav_header_subtitle">Grupo 2 - Electiva IV</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="mostrar_usuarios">Mostrar Usuarios</string>
+    <string name="adm_usuario">Adm Usuarios</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+    <string name="usuario">Usuario</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registrarse">Nuevo Usuario</string>
+
+    <string name="Saludo">Saludos</string>
+    <string name="Teexto_accion">Cerrar</string>
+
+    <string name="guardar_Sesion">Guardar Sesion</string>
+
+    <string-array name="ciudades">
+        <item>Guayaquil</item>
+        <item>Playas</item>
+        <item>Loja</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

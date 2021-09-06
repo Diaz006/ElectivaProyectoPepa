@@ -18,11 +18,24 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     EditText edtusuario, edtpassword;
     Button btnIniciarSesion;
     Button btnNuevoUsuario;
     //CheckBox checkGuardarSesion;
+
+    String usuario, password;
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -30,9 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicializarElementos();
+        recuperarPreferenciaas();
+        /*
         if (resvisarSesion()){
             AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
             alerta.setMessage("Desea continuar con la Sesión Guarda?")
@@ -58,10 +74,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             String mensaje = "Iniciar Sesion";
             Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
-        }
-
+        }*/
+        /*
         final BaseSQLITE base = new BaseSQLITE(getApplicationContext());
-
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +113,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Usuario Incorrecto",Toast.LENGTH_SHORT).show();
                 }
             }
+        });*/
+
+        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usuario=edtusuario.getText().toString();
+                password=edtpassword.getText().toString();
+                if (!usuario.isEmpty() && !password.isEmpty()){
+                    validarUsuario("http://192.168.100.7/ProyectoAndroid2/validar_usuario.php"); //aqui ponle tu url de la carpeta htdoct Wilson
+                   //Intent intent=new Intent(getApplicationContext(),ActivityPrincipal.class);
+                    //startActivity(intent);
+                    //finish();
+                }else{
+                    Toast.makeText(MainActivity.this,"Campo usuario o contrasena vacio",Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
         btnNuevoUsuario.setOnClickListener(new View.OnClickListener() {
@@ -105,21 +136,62 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intento = new Intent(getApplicationContext(),RegistroUsuarioActivity.class);
                 startActivity(intento);
+                //finish();
             }
         });
 
 
     }
 
-    private boolean resvisarSesion(){
-        return this.preferences.getBoolean(llave,false);
+    private void validarUsuario(String URL) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(!response.isEmpty()){
+                    guardarPreferencias();
+                    Intent intent=new Intent(getApplicationContext(),ActivityPrincipal.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Toast.makeText(MainActivity.this,"Usuario o Contrasena Incorrecta",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this,""+error,Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+
+                parametros.put("usuario",usuario);
+                parametros.put("password",password);
+                return parametros;
+            }
+        };
+
+        RequestQueue requestQueue=Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
-    private void guardarSesion(boolean checked){
-        editor.putBoolean(llave,checked);
-        editor.putString("usuario",edtusuario.getText().toString());
-        editor.putString("password",edtpassword.getText().toString());
-        editor.apply();
+    private void guardarPreferencias(){
+        SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("usuario",usuario);
+        editor.putString("password",password);
+        editor.putBoolean("sesion",true);
+        editor.commit();
+    }
+
+    private void recuperarPreferenciaas(){
+        SharedPreferences preferences=getSharedPreferences("preferenciasLogin",Context.MODE_PRIVATE);
+        edtusuario.setText(preferences.getString("usuario",""));
+        edtpassword.setText(preferences.getString("password",""));
+
     }
 
     private void inicializarElementos(){
@@ -131,9 +203,10 @@ public class MainActivity extends AppCompatActivity {
         edtpassword =findViewById(R.id.edtPassword);
         btnIniciarSesion = findViewById(R.id.btnLogin);
         btnNuevoUsuario = findViewById(R.id.btnRegistrarse);
-        //checkGuardarSesion = findViewById(R.id.checkBoxGuardarSesion);
+
     }
 
+    /*
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.ad_usuarios:
@@ -165,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.activity_principal, menu);
         //getMenuInflater().inflate(R.menu.menu_login,menu);
         return true;
-    }
+    }*/
 
 
 }

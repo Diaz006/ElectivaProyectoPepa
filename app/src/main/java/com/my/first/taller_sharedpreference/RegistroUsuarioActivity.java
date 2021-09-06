@@ -1,7 +1,5 @@
 package com.my.first.taller_sharedpreference;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,10 +18,26 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.my.first.taller_sharedpreference.databinding.ActivityRegistroUsuarioBinding;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroUsuarioActivity extends AppCompatActivity {
-    EditText edtnombre, edtapellido, edttelefono, edtusuario, edtemail, edtpasswordr, edtFechaNacimiento;
+    EditText edtname, edtlastname, edttelefono, edtusuario, edtemail, edtpasswordr, edtFechaNacimiento;
     Button btnregistrar, btncancerlar;
     ImageButton imgContacto;
     Spinner spinerCiudad;
@@ -32,15 +46,17 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
     String mSpinnerLabel;
     String Sexo;
 
+    RequestQueue requestQueue;
+
 
     static final int PICK_CONTACT_REQUEST=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_registro_usuario);
+        edtname = findViewById(R.id.edtName);
+        edtlastname = findViewById(R.id.edtLastName);
         id_formulario();
         cancelar();
         registrar();
@@ -68,9 +84,6 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     private void seleccionarContacto() {
@@ -79,7 +92,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         //seleccContactoIntent.setType(ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
         //seleccContactoIntent.setType(ContactsContract.CommonDataKinds.Email.CONTENT_TYPE);
         startActivityForResult(seleccContactoIntent,PICK_CONTACT_REQUEST);
-    }
+    } //Extraer Contactos
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -90,25 +103,17 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
                 if (cursor.moveToFirst()){
                     int columnaNombre = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME); // Nombre del contacto
-                    String nombre = cursor.getString(columnaNombre);
-                    edtnombre.setText(nombre);
-
-                    /*int columnaApellido = cursor.getColumnIndex(ContactsContract.CommonDataKinds.); // NUMERO del contacto
-                    String Apellido = cursor.getString(columnaApellido);
-                    edtapellido.setText(Apellido);*/
+                    String nombrec = cursor.getString(columnaNombre);
+                    edtname.setText(nombrec);
 
                     int columnaTelefono = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER); // NUMERO del contacto
-                    String Telefono = cursor.getString(columnaTelefono);
-                    edttelefono.setText(Telefono);
-
-                    /*int columnaEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS); // NUMERO del contacto
-                    String Email = cursor.getString(columnaEmail);
-                    edtemail.setText(Email);*/
+                    String Telefonoc = cursor.getString(columnaTelefono);
+                    edttelefono.setText(Telefonoc);
 
                 }
             }
         }
-    }
+    } //Extraer Contactos
 
     public void onRadioButtonClicked(View view){
         boolean checked = ((RadioButton) view ).isChecked();
@@ -136,8 +141,8 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
 
     public void id_formulario(){
-        edtnombre = findViewById(R.id.edtNombreAD);
-        edtapellido = findViewById(R.id.edtApellidoAD);
+
+
         edtusuario = findViewById(R.id.edtUsuario);
         edttelefono = findViewById(R.id.edtTelefono);
         edtemail = findViewById(R.id.edtEmail);
@@ -148,15 +153,14 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
         btnregistrar = findViewById(R.id.btnRegistrarse);
         btncancerlar = findViewById(R.id.btnCancelar);
-
         imgContacto =findViewById(R.id.btncontacto);
 
 
     }
 
     public void limpiar(){
-        edtnombre.setText("");
-        edtapellido.setText("");
+        edtname.setText("");
+        edtlastname.setText("");
         edtusuario.setText("");
         edttelefono.setText("");
         edtemail.setText("");
@@ -166,17 +170,58 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
     }
 
     public void registrar (){
-        final BaseSQLITE base = new BaseSQLITE(getApplicationContext());
+        //final BaseSQLITE base = new BaseSQLITE(getApplicationContext());
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                base.agregarUsuario(edtnombre.getText().toString(),edtapellido.getText().toString(),Sexo,edtusuario.getText().toString(),edttelefono.getText().toString(),edtemail.getText().toString(),spinerCiudad.getSelectedItem().toString(),edtFechaNacimiento.getText().toString(),edtpasswordr.getText().toString());
-                Toast.makeText(getApplicationContext(), "USUARIO SE AGREGO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
-                limpiar();
+                //base.agregarUsuario(edtnombre.getText().toString(),edtapellido.getText().toString(),Sexo,edtusuario.getText().toString(),edttelefono.getText().toString(),edtemail.getText().toString(),spinerCiudad.getSelectedItem().toString(),edtFechaNacimiento.getText().toString(),edtpasswordr.getText().toString());
+                ejecutarServicio("http://192.168.100.7/ProyectoAndroid2/insertar_Usuario.php");
+                //Snackbar.make(v, "Usuario Agregado Bien", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+
+                //limpiar();
                 finish();
+
             }
         });
 
+    }
+
+    private void ejecutarServicio(String URL){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "USUARIO AGREGADO CORRECTAMENTE", Toast.LENGTH_LONG).show();
+                limpiar();
+                //Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                //startActivity(intent);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Error: "+error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+
+                parametros.put("nombre",edtname.getText().toString());
+                parametros.put("apellido",edtlastname.getText().toString());
+                parametros.put("sexo",Sexo);
+                parametros.put("telefono",edttelefono.getText().toString());
+                parametros.put("email",edtemail.getText().toString());
+                parametros.put("ciudad",spinerCiudad.getSelectedItem().toString());
+                parametros.put("fecha",edtFechaNacimiento.getText().toString());
+                parametros.put("password",edtpasswordr.getText().toString());
+                parametros.put("usuario",edtusuario.getText().toString());
+                return parametros;
+            }
+        };
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     public void cancelar () {
@@ -184,7 +229,9 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RegistroUsuarioActivity.this,"Salida de Nuevo Usuario.....",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                //Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                //Snackbar.make(v, "Saliendo de Nuevo Usuario", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
                 finish();
             }
         });

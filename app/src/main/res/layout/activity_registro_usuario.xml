@@ -67,11 +67,10 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/edtNombreAD"
+                    android:id="@+id/edtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
                     android:backgroundTint="@color/white"
                     android:ems="10"
                     android:hint="Nombre"
@@ -82,10 +81,9 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <EditText
-                    android:id="@+id/edtApellidoAD"
+                    android:id="@+id/edtLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:backgroundTint="@android:color/white"
                     android:ems="10"
@@ -152,7 +150,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
                     android:backgroundTint="@android:color/white"
                     android:ems="10"
                     android:hint="Usuario"
@@ -163,7 +160,6 @@
                     android:id="@+id/edtTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:backgroundTint="@android:color/white"
                     android:ems="10"

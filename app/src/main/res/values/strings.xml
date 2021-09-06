@@ -14,7 +14,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
 
-    <string name="usuario">Usuario</string>
+    <string name="usuario">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="registrarse">Nuevo Usuario</string>

@@ -27,11 +27,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -143,16 +138,16 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
     public void id_formulario(){
 
 
-        edtusuario = findViewById(R.id.edtUsuario);
-        edttelefono = findViewById(R.id.edtTelefono);
-        edtemail = findViewById(R.id.edtEmail);
-        edtpasswordr = findViewById(R.id.edtPassword);
-        edtFechaNacimiento = findViewById(R.id.edtDate);
+        edtusuario = findViewById(R.id.edtUsuarioAD);
+        edttelefono = findViewById(R.id.edtTelefonoAD);
+        edtemail = findViewById(R.id.edtEmailAD);
+        edtpasswordr = findViewById(R.id.edtPasswordAD);
+        edtFechaNacimiento = findViewById(R.id.edtDateAD);
 
         spinerCiudad = findViewById(R.id.spCiudad);
 
         btnregistrar = findViewById(R.id.btnRegistrarse);
-        btncancerlar = findViewById(R.id.btnCancelar);
+        btncancerlar = findViewById(R.id.btnCancelarAD);
         imgContacto =findViewById(R.id.btncontacto);
 
 
@@ -239,7 +234,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
 
     public void showDatePickerDialog(View v) {
-        final TextView etPlannedDate = (TextView) findViewById(R.id.edtDate);
+        final TextView etPlannedDate = (TextView) findViewById(R.id.edtDateAD);
 
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override

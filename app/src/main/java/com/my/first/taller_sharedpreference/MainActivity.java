@@ -1,10 +1,8 @@
 package com.my.first.taller_sharedpreference;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,9 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -199,26 +195,17 @@ public class MainActivity extends AppCompatActivity {
         preferences = getSharedPreferences("sesiones",Context.MODE_PRIVATE);
         editor = preferences.edit();
 
-        edtusuario = findViewById(R.id.edtUsuario);
-        edtpassword =findViewById(R.id.edtPassword);
+        edtusuario = findViewById(R.id.edtUsuarioAD);
+        edtpassword =findViewById(R.id.edtPasswordAD);
         btnIniciarSesion = findViewById(R.id.btnLogin);
         btnNuevoUsuario = findViewById(R.id.btnRegistrarse);
 
     }
 
-    /*
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.ad_usuarios:
-                Intent adusuario = new Intent(getApplicationContext(), AdminUsuarios.class);
-                Toast.makeText(this, "ADMINISTRADOR DE USUARIOS", Toast.LENGTH_SHORT).show();
-                startActivity(adusuario);
-                return true;
-
-            case R.id.mos_usuarios:
-                Intent mostrarUsuarios = new Intent(getApplicationContext(), UsuariosActivity.class);
-                Toast.makeText(this, "LISTAS DE USUARIOS", Toast.LENGTH_SHORT).show();
-                startActivity(mostrarUsuarios);
+            case R.id.menu_usuariosa:
+                Toast.makeText(this, "Configuracion", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
@@ -226,19 +213,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
     public void showPopup (View v){
         PopupMenu popup = new PopupMenu(this, v);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.activity_principal, popup.getMenu());
         popup.show();
-    }
+    }*/
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_principal, menu);
-        //getMenuInflater().inflate(R.menu.menu_login,menu);
+        inflater.inflate(R.menu.activity_usuarios, menu);
+        //getMenuInflater().inflate(R.menu.activity_principal, menu);
         return true;
-    }*/
+    }
 
 
 }

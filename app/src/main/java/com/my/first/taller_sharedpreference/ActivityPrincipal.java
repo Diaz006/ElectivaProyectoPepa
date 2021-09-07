@@ -175,6 +175,10 @@ public class ActivityPrincipal extends AppCompatActivity {
                 startActivity(mostrarUsuarios);
                 return true;
 
+            case R.id.menu_usuariosa:
+                Toast.makeText(this, "Configuracion", Toast.LENGTH_SHORT).show();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -193,6 +197,9 @@ public class ActivityPrincipal extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         if (Usuario.equals("ADMIN")){
             inflater.inflate(R.menu.activity_principal, menu);
+            inflater.inflate(R.menu.activity_usuarios, menu);
+        } else {
+            inflater.inflate(R.menu.activity_usuarios, menu);
         }
         //getMenuInflater().inflate(R.menu.activity_principal, menu);
         return true;

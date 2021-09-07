@@ -9,8 +9,8 @@
     <string name="mostrar_usuarios">Mostrar Usuarios</string>
     <string name="adm_usuario">Adm Usuarios</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_home">Noticias</string>
+    <string name="menu_gallery">Mitos</string>
     <string name="menu_slideshow">Slideshow</string>
 
 
@@ -22,6 +22,8 @@
     <string name="Saludo">Saludos</string>
     <string name="Teexto_accion">Cerrar</string>
 
+    <string name="Configuracion">Configuracion</string>
+
     <string name="guardar_Sesion">Guardar Sesion</string>
 
     <string-array name="ciudades">
@@ -31,4 +33,9 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="facebook_app_id">6439520442739945</string> <string name="fb_login_protocol_scheme">fb6439520442739945</string>
+
+
 </resources>

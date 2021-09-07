@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/bgwcorronaapp" />
 
     <EditText
-        android:id="@+id/edtUsuario"
+        android:id="@+id/edtUsuarioAD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtPasswordAD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -48,7 +48,7 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/edtUsuarioAD" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -61,7 +61,7 @@
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordAD" />
 
     <Button
         android:id="@+id/btnRegistrarse"

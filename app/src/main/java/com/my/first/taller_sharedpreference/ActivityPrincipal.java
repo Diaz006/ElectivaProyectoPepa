@@ -62,9 +62,11 @@ public class ActivityPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
 
-        buscarUsuario("http://192.168.100.7/ProyectoAndroid2/buscar_usuario.php?email="+preferences.getString("usuario","")+"");
+        SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        //preferences.edit().clear().commit();
+
+        buscarUsuario("http://192.168.1.3/ProyectoAndroid2/buscar_usuario.php?email="+preferences.getString("usuario","")+"");
         //navigationView = (NavigationView) findViewById(R.id.nav_host_fragment_content_activity_principal);
 
 

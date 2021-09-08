@@ -1,11 +1,14 @@
 package com.my.first.taller_sharedpreference;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,7 +59,7 @@ public class UsuariosActivity extends AppCompatActivity {
                 do {
                     try {
                         jsonObject = response.getJSONObject(ia);
-                        usuariosa.add(new UsuariosModelo(jsonObject.getString("u_nombre"),jsonObject.getString("u_telefono"),jsonObject.getString("u_email")));
+                        usuariosa.add(new UsuariosModelo(jsonObject.getString("u_nombre"),jsonObject.getString("ID"),jsonObject.getString("u_email")));
                         //usuariosa.add(new UsuariosModelo("holvbcvba","089675346","bryan@gmail.com"));
                         //Toast.makeText(getApplicationContext(),usuariosa.get(ia).getNombre(), Toast.LENGTH_SHORT).show();
                         adaptadorUsuario = new UsuariosAdaptador(usuariosa);
@@ -71,7 +74,7 @@ public class UsuariosActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"NO SE ENCONTRARON USUARIOS",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),R.string.Activity_NoUdsuario,Toast.LENGTH_SHORT).show(); //
 
             }
         }
@@ -94,6 +97,18 @@ public class UsuariosActivity extends AppCompatActivity {
             }
         });
 
+        setDayNight();
+
+    }
+
+    public void setDayNight(){
+        SharedPreferences sp = getSharedPreferences("SP", MODE_PRIVATE);
+        int theme = sp.getInt("Theme", 1);
+        if(theme==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private void MostrarUsuario (String URL){
@@ -118,7 +133,7 @@ public class UsuariosActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"NO SE ENCONTRARON USUARIOS",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),R.string.Activity_NoUdsuario,Toast.LENGTH_SHORT).show();
 
             }
         }

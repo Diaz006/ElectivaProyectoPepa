@@ -2,6 +2,7 @@ package com.my.first.taller_sharedpreference;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -78,7 +80,18 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
                 seleccionarContacto();
             }
         });
+        setDayNight();
 
+    }
+
+    public void setDayNight(){
+        SharedPreferences sp = getSharedPreferences("SP", MODE_PRIVATE);
+        int theme = sp.getInt("Theme", 1);
+        if(theme==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private void seleccionarContacto() {
@@ -115,19 +128,19 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.rbtnHombre:
                 if (checked){
-                    Toast.makeText(RegistroUsuarioActivity.this,"Sexo Masculino",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroUsuarioActivity.this,R.string.Activity_SexoMasculino,Toast.LENGTH_SHORT).show();
                     Sexo = "Masculino";
                 }
                 break;
             case R.id.rbtnFemenino:
                 if (checked){
-                    Toast.makeText(RegistroUsuarioActivity.this,"Sexo Femenino",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroUsuarioActivity.this,R.string.Activity_SexoFemenino,Toast.LENGTH_SHORT).show();
                     Sexo = "Femenino";
                 }
                 break;
             case R.id.rbtnOtro:
                 if (checked){
-                    Toast.makeText(RegistroUsuarioActivity.this,"Sexo Otro",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroUsuarioActivity.this,R.string.Activity_SexoOtro,Toast.LENGTH_SHORT).show();
                     Sexo = "Otro";
                 }
                 break;
@@ -186,7 +199,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "USUARIO AGREGADO CORRECTAMENTE", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.Activity_UsuarioAgregado, Toast.LENGTH_LONG).show();
                 limpiar();
                 //Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 //startActivity(intent);
@@ -223,7 +236,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         btncancerlar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RegistroUsuarioActivity.this,"Salida de Nuevo Usuario.....",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroUsuarioActivity.this,R.string.Activity_SalidaNuevoUsuario,Toast.LENGTH_SHORT).show();
                 //Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 //Snackbar.make(v, "Saliendo de Nuevo Usuario", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();

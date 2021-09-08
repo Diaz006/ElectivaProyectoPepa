@@ -9,14 +9,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
-            android:background="#202732"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -38,7 +37,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Ad. Usuarios"
+                        android:text="@string/administrar_Usuario"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -56,7 +55,7 @@
                             android:textColor="#0E0B0B"
                             android:textSize="15sp"
                             app:backgroundTint="@color/colorPrimary"
-                            android:text="Buscar" />
+                            android:text="@string/Boton_buscar" />
 
                         <EditText
                             android:id="@+id/edtID"
@@ -90,9 +89,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="#C3C3C3"
                     android:ems="10"
-                    android:hint="Nombre"
+                    android:hint="@string/registro_nombre"
                     android:inputType="text"
                     android:paddingLeft="6dp"
                     android:rotationX="0"
@@ -104,8 +103,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="@android:color/white"
-                    android:hint="Apellido"
+                    android:backgroundTint="#C3C3C3"
+                    android:hint="@string/registro_apellido"
                     android:inputType="text"
                     android:rotationX="0" />
             </LinearLayout>
@@ -120,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
-                    android:text="Sexo"
+                    android:text="@string/registro_sexo"
                     android:textSize="19sp" />
 
                 <RadioGroup
@@ -136,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Masculino" />
+                        android:text="@string/registro_masculino" />
 
                     <RadioButton
                         android:id="@+id/rbtnFemenino"
@@ -144,7 +143,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Femenino" />
+                        android:text="@string/registro_femenino" />
 
                     <RadioButton
                         android:id="@+id/rbtnOtro"
@@ -152,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Otro" />
+                        android:text="@string/registro_otro" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -168,9 +167,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="@android:color/white"
+                    android:backgroundTint="#C3C3C3"
                     android:ems="10"
-                    android:hint="Usuario"
+                    android:hint="@string/registro_usuario"
                     android:paddingLeft="6dp"
                     android:rotationX="0" />
 
@@ -179,9 +178,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="@android:color/white"
+                    android:backgroundTint="#C3C3C3"
                     android:ems="10"
-                    android:hint="Teléfono"
+                    android:hint="@string/registro_telefono"
                     android:inputType="number"
 
                     android:rotationX="0" />
@@ -198,7 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
-                    android:text="Ciudad de Nacimiento"
+                    android:text="@string/registro_ciudad"
                     android:textSize="19sp" />
 
                 <Spinner
@@ -221,7 +220,7 @@
                     android:layout_margin="12dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Fecha Nacimiento"
+                    android:text="@string/registro_fecha"
                     android:textSize="15sp" />
 
                 <EditText
@@ -248,9 +247,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:backgroundTint="@android:color/white"
+                android:backgroundTint="#C3C3C3"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="@string/registro_email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="6dp"
                 android:rotationX="0" />
@@ -261,9 +260,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:backgroundTint="@android:color/white"
+                android:backgroundTint="#C3C3C3"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/registro_contrasena"
                 android:inputType="textPassword"
                 android:paddingLeft="6dp"
                 android:rotationX="0" />
@@ -281,7 +280,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/button_rounded"
-                    android:text="ACTUALIZAR"
+                    android:text="@string/Boton_actualizar"
                     android:textColor="#FFF"
                     android:textSize="18sp"
                     app:backgroundTint="@color/Boton" />
@@ -294,7 +293,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/button_rounded2"
-                    android:text="ELIMINAR"
+                    android:text="@string/Boton_eliminar"
                     android:textColor="#FFF"
                     android:textSize="18sp"
                     app:backgroundTint="@color/Eliminar" />
@@ -308,8 +307,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/button_rounded_border"
-                android:text="CANCELAR"
-                android:textColor="#FFF"
+                android:text="@string/registro_cancelar"
+                android:textColor="#C3C3C3"
                 android:textSize="18sp"
 
                 />

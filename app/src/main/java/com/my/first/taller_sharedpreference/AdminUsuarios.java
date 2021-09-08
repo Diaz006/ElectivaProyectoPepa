@@ -1,6 +1,7 @@
 package com.my.first.taller_sharedpreference;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -96,7 +97,18 @@ public class AdminUsuarios extends AppCompatActivity {
                 eliminarUsuario("http://192.168.100.7/ProyectoAndroid2/eliminar_usuario.php");
             }
         });
+        setDayNight();
 
+    }
+
+    public void setDayNight(){
+        SharedPreferences sp = getSharedPreferences("SP", MODE_PRIVATE);
+        int theme = sp.getInt("Theme", 1);
+        if(theme==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     /*------------------------------------------------------*/
@@ -154,7 +166,7 @@ public class AdminUsuarios extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"ID Incorrecto",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),R.string.Activity_IDIncorrecto,Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -169,19 +181,19 @@ public class AdminUsuarios extends AppCompatActivity {
         switch (view.getId()){
             case R.id.rbtnHombre:
                 if (checked){
-                    Toast.makeText(AdminUsuarios.this,"Sexo Masculino",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUsuarios.this,R.string.Activity_SexoMasculino,Toast.LENGTH_SHORT).show();
                     Sexo = "Masculino";
                 }
                 break;
             case R.id.rbtnFemenino:
                 if (checked){
-                    Toast.makeText(AdminUsuarios.this,"Sexo Femenino",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUsuarios.this,R.string.Activity_SexoFemenino,Toast.LENGTH_SHORT).show();
                     Sexo = "Femenino";
                 }
                 break;
             case R.id.rbtnOtro:
                 if (checked){
-                    Toast.makeText(AdminUsuarios.this,"Sexo Otro",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUsuarios.this,R.string.Activity_SexoOtro,Toast.LENGTH_SHORT).show();
                     Sexo = "Otro";
                 }
                 break;
@@ -216,7 +228,7 @@ public class AdminUsuarios extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "USUARIO ACTUALIZADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.Activity_UsuarioActualizado, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -261,7 +273,7 @@ public class AdminUsuarios extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "EL USUARIO FUE ELIMINADO CON EXITO", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.Activity_UsuarioEliminado, Toast.LENGTH_SHORT).show();
                 limpiar();
             }
         }, new Response.ErrorListener() {
@@ -287,7 +299,7 @@ public class AdminUsuarios extends AppCompatActivity {
         btncancerlar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AdminUsuarios.this,"Salida de Administración de Usuario.....",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminUsuarios.this,R.string.Activity_SalidaAdUsuario,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 finish();
             }

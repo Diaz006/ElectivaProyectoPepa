@@ -1,6 +1,7 @@
 package com.my.first.taller_sharedpreference;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     //startActivity(intent);
                     //finish();
                 }else{
-                    Toast.makeText(MainActivity.this,"Campo usuario o contrasena vacio",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.Activity_UsuarioVacio,Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -135,8 +137,45 @@ public class MainActivity extends AppCompatActivity {
                 //finish();
             }
         });
+        /*
+        final ActivityPrincipal ma = (ActivityPrincipal) getActivity();
+        SharedPreferences sp = ma.getSharedPreferences("SP", ma.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        final Switch swi = root.findViewById(R.id.switema);
+
+        int theme = sp.getInt("Theme", 1);
+        if (theme==1){
+            swi.setChecked(false);
+        }else{
+            swi.setChecked(true);
+        }
+        swi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (swi.isChecked()){
+                    //((MainActivity)getActivity()).setDayNight(0);
+                    editor.putInt("Theme",0);
+                }else{
+                    //((MainActivity)getActivity()).setDayNight(1);
+                    editor.putInt("Theme", 1);
+                }
+                editor.commit();
+                ma.setDayNight();
+            }
+        });*/
+        setDayNight();
 
 
+    }
+
+    public void setDayNight(){
+        SharedPreferences sp = getSharedPreferences("SP", MODE_PRIVATE);
+        int theme = sp.getInt("Theme", 1);
+        if(theme==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private void validarUsuario(String URL) {
@@ -149,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else {
-                    Toast.makeText(MainActivity.this,"Usuario o Contrasena Incorrecta",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.Activity_UsuarioIncorrecto,Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -205,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_usuariosa:
-                Toast.makeText(this, "Configuracion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Activity_UsuarioConfiguracion, Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

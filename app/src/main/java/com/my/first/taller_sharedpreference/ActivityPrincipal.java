@@ -24,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -143,7 +144,18 @@ public class ActivityPrincipal extends AppCompatActivity {
 
         profileName = navigationView.getHeaderView(0).findViewById(R.id.txtUsuarioAB);
         //TxtUsuario.setText(preferences.getString("usuario",""));
+        setDayNight();
 
+    }
+
+    public void setDayNight(){
+        SharedPreferences sp = getSharedPreferences("SP", MODE_PRIVATE);
+        int theme = sp.getInt("Theme", 1);
+        if(theme==0){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private void recuperarPreferenciaas(){
@@ -165,18 +177,18 @@ public class ActivityPrincipal extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.ad_usuarios:
                 Intent adusuario = new Intent(getApplicationContext(), AdminUsuarios.class);
-                Toast.makeText(this, "ADMINISTRADOR DE USUARIOS", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Activity_adUsuario, Toast.LENGTH_SHORT).show();
                 startActivity(adusuario);
                 return true;
 
             case R.id.mos_usuarios:
                 Intent mostrarUsuarios = new Intent(getApplicationContext(), UsuariosActivity.class);
-                Toast.makeText(this, "LISTAS DE USUARIOS", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Activity_listaUsuario, Toast.LENGTH_SHORT).show();
                 startActivity(mostrarUsuarios);
                 return true;
 
             case R.id.menu_usuariosa:
-                Toast.makeText(this, "Configuracion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.Activity_confiUsuario, Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
@@ -215,13 +227,13 @@ public class ActivityPrincipal extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        profileName.setText("Bienvenido "+jsonObject.getString("u_nombre")+" "+jsonObject.getString("u_apellido"));
+                        profileName.setText(getString(R.string.Activity_BIENVENIDO)+" "+jsonObject.getString("u_nombre")+" "+jsonObject.getString("u_apellido"));
                         //TxtUsuario.setText("Bienvenido "+jsonObject.getString("u_nombre")+" "+jsonObject.getString("u_apellido"));
                         //TxtUsuario.setText(preferences.getString("usuario",""));
                         String nombre = jsonObject.getString("u_nombre");
                         String apellido = jsonObject.getString("u_apellido");
                         Usuario = jsonObject.getString("u_usuario");
-                        Toast.makeText(getApplicationContext(),"Hola " + nombre + " "+apellido,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),getString(R.string.Activity_SALUDO) +" "+ nombre + " "+apellido,Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -230,7 +242,7 @@ public class ActivityPrincipal extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error de Conexión",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),R.string.Activity_ErrorConexion,Toast.LENGTH_SHORT).show();
 
             }
         }

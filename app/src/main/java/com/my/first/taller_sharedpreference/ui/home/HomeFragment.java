@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
         final ActivityPrincipal ma = (ActivityPrincipal) getActivity();
         SharedPreferences sp = ma.getSharedPreferences("SP", ma.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        /*
+
         final Switch swi = root.findViewById(R.id.switema);
 
         int theme = sp.getInt("Theme", 1);
@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
                 ma.setDayNight();
             }
         });
-        */
+
         return root;
     }
 

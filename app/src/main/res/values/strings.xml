@@ -31,8 +31,65 @@
         <item>Playas</item>
         <item>Loja</item>
     </string-array>
+
+    <string name="tema_oscuro">Tema Oscuro</string>
+
+    <!-- Notificaciones dentro de las activity -->
+    <string name="Activity_NoUdsuario">NO SE ENCONTRARON USUARIOS</string>
+    <string name="Activity_adUsuario">ADMINISTRADOR DE USUARIOS</string>
+    <string name="Activity_listaUsuario">LISTAS DE USUARIOS</string>
+    <string name="Activity_confiUsuario">Configuración</string>
+    <string name="Activity_ErrorConexion">Error de Conexión</string>
+
+    <string name="Activity_IDIncorrecto">ID Incorrecto</string>
+    <string name="Activity_SexoMasculino">Sexo Masculino</string>
+    <string name="Activity_SexoFemenino">Sexo Femenino</string>
+    <string name="Activity_SexoOtro">Sexo Otro</string>
+    <string name="Activity_UsuarioActualizado">USUARIO ACTUALIZADO CORRECTAMENTE</string>
+    <string name="Activity_UsuarioAgregado">USUARIO AGREGADO CORRECTAMENTE</string>
+    <string name="Activity_UsuarioEliminado">EL USUARIO FUE ELIMINADO CON EXITO</string>
+    <string name="Activity_SalidaAdUsuario">Salida de Administración de Usuario.....</string>
+    <string name="Activity_SalidaNuevoUsuario">Salida de Nuevo Usuario.....</string>
+
+    <string name="Activity_SALUDO">Hola</string>
+    <string name="Activity_BIENVENIDO">Bienvenido</string>
+
+    <string name="Activity_UsuarioVacio">Campo usuario o contrasena vacio</string>
+    <string name="Activity_UsuarioIncorrecto">Usuario o Contrasena Incorrecta</string>
+    <string name="Activity_UsuarioConfiguracion">Configuración</string>
+
+    <!-- Datos para los registro de usuarios -->
+    <string name="registro_Usuario">Nuevo Usuario</string>
+    <string name="administrar_Usuario">CRUD Usuario</string>
+
+    <string name="registro_nombre">Nombre</string>
+    <string name="registro_apellido">Apellido</string>
+    <string name="registro_sexo">Sexo</string>
+    <string name="registro_masculino">Masculino</string>
+    <string name="registro_femenino">Femenino</string>
+    <string name="registro_otro">Otro</string>
+    <string name="registro_usuario">Usuario</string>
+    <string name="registro_telefono">Telefono</string>
+    <string name="registro_ciudad">Ciudad de Nacimiento</string>
+    <string name="registro_fecha">Fecha de Nacimiento</string>
+    <string name="registro_email">Correo</string>
+    <string name="registro_contrasena">Contraseña</string>
+
+
+    <string name="registro_registrar">REGISTRAR</string>
+    <string name="registro_cancelar">CANCELAR</string>
+    <string name="Boton_salir">SALIR</string>
+    <string name="Boton_buscar">BUSCAR</string>
+    <string name="Boton_actualizar">ACTUALIZAR</string>
+    <string name="Boton_eliminar">ELIMINAR</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hola Crack</string>
+
+
+
 
 
     <string name="facebook_app_id">6439520442739945</string> <string name="fb_login_protocol_scheme">fb6439520442739945</string>

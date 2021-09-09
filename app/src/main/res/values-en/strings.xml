@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">Final Elective Project</string>
+    <string name="title_activity_principal">ActivityPrincipal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">BGW Corona News APP</string>
+    <string name="nav_header_subtitle">Group 2 - Elective IV</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="mostrar_usuarios">Show Users</string>
+    <string name="adm_usuario">Adm Users</string>
+
+    <string name="menu_home">News</string>
+    <string name="menu_gallery">Myths</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+    <string name="usuario">E-mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registrarse">New user</string>
+
+    <string name="Saludo">Greetings</string>
+    <string name="Teexto_accion">To close</string>
+
+    <string name="Configuracion">Setting</string>
+
+    <string name="guardar_Sesion">Save Session</string>
+
+    <string-array name="ciudades">
+        <item>Guayaquil</item>
+        <item>Playas</item>
+        <item>Loja</item>
+    </string-array>
+
+    <string name="tema_oscuro">Dark Theme</string>
+
+    <!-- Notificaciones dentro de las activity -->
+    <string name="Activity_NoUdsuario">NO USERS FOUND</string>
+    <string name="Activity_adUsuario">USER MANAGER</string>
+    <string name="Activity_listaUsuario">USER LIST</string>
+    <string name="Activity_confiUsuario">SETTING</string>
+    <string name="Activity_ErrorConexion">CONNECTION ERROR</string>
+
+    <string name="Activity_IDIncorrecto">ID INCORRECT</string>
+    <string name="Activity_SexoMasculino">MALE</string>
+    <string name="Activity_SexoFemenino">FEMALE</string>
+    <string name="Activity_SexoOtro">Sex OTHER</string>
+    <string name="Activity_UsuarioActualizado">USER UPDATED SUCCESSFULLY</string>
+    <string name="Activity_UsuarioAgregado">USER ADDED SUCCESSFULLY</string>
+    <string name="Activity_UsuarioEliminado">USER WAS SUCCESSFULLY REMOVED</string>
+    <string name="Activity_SalidaAdUsuario">USER MANAGEMENT EXIT...</string>
+    <string name="Activity_SalidaNuevoUsuario">NEW USER EXIT...</string>
+
+    <string name="Activity_SALUDO">Hello</string>
+    <string name="Activity_BIENVENIDO">Welcome</string>
+
+    <string name="Activity_UsuarioVacio">EMPTY USERNAME OR PASSWORD FIELD</string>
+    <string name="Activity_UsuarioIncorrecto">INCORRECT USER OR PASSWORD</string>
+    <string name="Activity_UsuarioConfiguracion">SETTING</string>
+
+    <!-- Datos para los registro de usuarios -->
+    <string name="registro_Usuario">New User</string>
+    <string name="administrar_Usuario">CRUD User</string>
+
+    <string name="registro_nombre">Name</string>
+    <string name="registro_apellido">Last Name</string>
+    <string name="registro_sexo">Sex</string>
+    <string name="registro_masculino">Male</string>
+    <string name="registro_femenino">Feminine</string>
+    <string name="registro_otro">Other</string>
+    <string name="registro_usuario">User</string>
+    <string name="registro_telefono">Phone</string>
+    <string name="registro_ciudad">City Of Birth</string>
+    <string name="registro_fecha">Date of Birth</string>
+    <string name="registro_email">E-mail</string>
+    <string name="registro_contrasena">Password</string>
+
+
+    <string name="registro_registrar">REGISTER</string>
+    <string name="registro_cancelar">CANCEL</string>
+    <string name="Boton_salir">EXIT</string>
+    <string name="Boton_buscar">SEARCH</string>
+    <string name="Boton_actualizar">UPDATE</string>
+    <string name="Boton_eliminar">REMOVE</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hi Crack</string>
+
+
+    <string name="facebook_app_id">6439520442739945</string> <string name="fb_login_protocol_scheme">fb6439520442739945</string>
+
+
+</resources>

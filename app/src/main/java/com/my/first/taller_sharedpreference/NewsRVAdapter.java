@@ -1,5 +1,7 @@
 package com.my.first.taller_sharedpreference;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -8,12 +10,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder> {
-    @NonNull
+import java.util.ArrayList;
 
+public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder> {
+
+    private ArrayList<Articles> articlesArrayList;
+    private Context context;
+
+    public NewsRVAdapter(ArrayList<Articles> articlesArrayList, Context context) {
+        this.articlesArrayList = articlesArrayList;
+        this.context = context;
+    }
+
+    @NonNull
     @Override
     public NewsRVAdapter.ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_rv_item,parent,false);
+        return new NewsRVAdapter.ViewHolder(view);
     }
 
     @Override

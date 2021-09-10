@@ -283,7 +283,7 @@
                     android:text="@string/Boton_actualizar"
                     android:textColor="#FFF"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/Boton" />
+                    />
 
                 <Button
                     android:id="@+id/btnEliminar"
@@ -296,7 +296,7 @@
                     android:text="@string/Boton_eliminar"
                     android:textColor="#FFF"
                     android:textSize="18sp"
-                    app:backgroundTint="@color/Eliminar" />
+                     />
             </LinearLayout>
 
             <Button

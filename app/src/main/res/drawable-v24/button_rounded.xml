@@ -3,4 +3,11 @@
     <corners android:radius="16dp"/>
     <solid android:color="@color/Boton"/>
 
+    <gradient
+        android:startColor="#000A42"
+        android:endColor="@color/Boton"
+        android:angle="0"
+        >
+    </gradient>
+
 </shape>

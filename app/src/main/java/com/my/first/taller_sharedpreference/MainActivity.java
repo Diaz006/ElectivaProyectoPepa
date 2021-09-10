@@ -24,6 +24,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -244,7 +246,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_usuariosa:
-                Toast.makeText(this, R.string.Activity_UsuarioConfiguracion, Toast.LENGTH_SHORT).show();
+                Intent adusuarioa = new Intent(getApplicationContext(), ConfiguracionActivity.class);
+                Toast.makeText(this, R.string.Activity_confiUsuario, Toast.LENGTH_SHORT).show();
+                startActivity(adusuarioa);
                 return true;
 
             default:

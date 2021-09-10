@@ -1,9 +1,15 @@
 package com.my.first.taller_sharedpreference;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +31,8 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -57,6 +65,11 @@ public class ActivityPrincipal extends AppCompatActivity {
     //Obtiene referencia de TextView usado como header.
     TextView profileName;
     //Asigna texto a TextView.
+
+
+
+    private final static String CHANNEL_ID="NOTIFICACION";
+    private final static int NOTIFICACION_ID=0;
 
 
     @Override
@@ -123,11 +136,15 @@ public class ActivityPrincipal extends AppCompatActivity {
                     finish();
                 } */
                 //SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-                preferences.edit().clear().commit();
+                //preferences.edit().clear().commit();
 
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+                //Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                //startActivity(intent);
+                EjemploAsyncTask ejemploAsyncTask = new EjemploAsyncTask();
+                ejemploAsyncTask.execute();
+
                 finish();
+
 
             }
         });
@@ -147,6 +164,87 @@ public class ActivityPrincipal extends AppCompatActivity {
         profileName = navigationView.getHeaderView(0).findViewById(R.id.txtUsuarioAB);
         //TxtUsuario.setText(preferences.getString("usuario",""));
         setDayNight();
+
+    }
+
+    private void UnSegundo (){
+        try {
+            Thread.sleep(1000);
+        }catch (InterruptedException e){
+
+        }
+    }
+
+    private class EjemploAsyncTask extends AsyncTask<Void,Integer,Boolean> {
+        @Override //1 Funcion que se ejecuta en el hilo principal todas las cosas que se quieren ejecutar antes de que vayan a segundo plano
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //progressBar.setMax(100);
+            //progressBar.setProgress(0);
+        }
+
+        @Override //4. Ultima funcion se acaba los procesos en el hilo aqui presentas un ultima accion
+        protected void onPostExecute(Boolean unused) {
+            //super.onPostExecute(unused);
+            if (unused){
+                createNotificationChannel();
+                crearNotificacion();
+                //Toast.makeText(getBaseContext(),"Tarea Larga finalizada en Asynktask", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override //3. Se ejecuta el hilo de la interfaz de usuario
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            //progressBar.setProgress(values[0].intValue());
+
+        }
+
+        @Override //Si cortas la ejecucion del segundo hilo aqui llamas a esa función
+        protected void onCancelled() {
+            super.onCancelled();
+            Toast.makeText(getBaseContext(),"Tarea Larga ha sido cancelada", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override // 2 Funcion que hay que hacer en segundo plano, recibe como parametro de entradas para ejecutar las instrucciones y dar el segundo plano
+        protected Boolean doInBackground(Void... voids) {
+            for (int i=1; i<10;i++){
+                UnSegundo();
+                //publishProgress(i*12);
+                if (isCancelled()) {
+                    break;
+                }
+            }
+            return true;
+        }
+    }
+
+
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Notication";
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+
+    private void crearNotificacion(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+        builder.setContentTitle("Nueva Noticia");
+        builder.setContentText("El COVID 19 Ha Provocado un Cambio en la Vida Diaria");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);//Para poner luz en el celular se prueba en telefonos reales
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});//Para que bibre
+        builder.setDefaults(Notification.DEFAULT_SOUND); //Para anadir un sonido
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID,builder.build());
+
+
 
     }
 
@@ -190,7 +288,18 @@ public class ActivityPrincipal extends AppCompatActivity {
                 return true;
 
             case R.id.menu_usuariosa:
+                Intent adusuarioa = new Intent(getApplicationContext(), ConfiguracionActivity.class);
                 Toast.makeText(this, R.string.Activity_confiUsuario, Toast.LENGTH_SHORT).show();
+                startActivity(adusuarioa);
+                finish();
+                return true;
+
+            case R.id.cerrarsesion:
+                SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+                preferences.edit().clear().commit();
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
 
             default:

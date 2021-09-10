@@ -262,7 +262,7 @@
                 android:text="@string/registro_registrar"
                 android:textColor="#FFF"
                 android:textSize="18sp"
-                app:backgroundTint="@color/Boton" />
+                 />
 
             <Button
                 android:id="@+id/btnCancelarAD"

@@ -84,15 +84,12 @@
     <string name="Boton_eliminar">ELIMINAR</string>
 
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola Crack</string>
 
 
-
-
-
-    <string name="facebook_app_id">6439520442739945</string> <string name="fb_login_protocol_scheme">fb6439520442739945</string>
+    <string name="facebook_app_id">6439520442739945</string>
+    <string name="fb_login_protocol_scheme">fb6439520442739945</string>
 
 
 </resources>

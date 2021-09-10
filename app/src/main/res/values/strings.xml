@@ -27,8 +27,15 @@
     <string name="guardar_Sesion">Guardar Sesion</string>
 
     <string-array name="ciudades">
+        <item>Quito</item>
         <item>Guayaquil</item>
-        <item>Playas</item>
+        <item>Cuenca</item>
+        <item>Baños</item>
+        <item>De Nuevo</item>
+        <item>Ibarra</item>
+        <item>Manta</item>
+        <item>Ambato</item>
+        <item>Riobamba</item>
         <item>Loja</item>
     </string-array>
 
@@ -83,16 +90,23 @@
     <string name="Boton_actualizar">ACTUALIZAR</string>
     <string name="Boton_eliminar">ELIMINAR</string>
 
+    <string name="Boton_lugarvacunacion">Vacunación</string>
+    <string name="Boton_certificadovacunacion">Certificado Vacunación</string>
 
 
+    <string name="menu_cerrarsesion">Cerrar Sesión</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola Crack</string>
 
+    <!-- Configuracion -->
+    <string name="activity_configuracion">CONFIGURACIÓN</string>
+    <string name="activity_configuracionidioma">Idioma</string>
+    <string name="activity_configuracionidiomaboton">Español</string>
+    <string name="activity_configuracionidiomatema">Tema</string>
 
 
-
-
-    <string name="facebook_app_id">6439520442739945</string> <string name="fb_login_protocol_scheme">fb6439520442739945</string>
+    <string name="facebook_app_id">6439520442739945</string>
+    <string name="fb_login_protocol_scheme">fb6439520442739945</string>
 
 
 </resources>

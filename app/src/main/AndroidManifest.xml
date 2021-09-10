@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Taller_SharedPreference">
-
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ConfiguracionActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".AdminUsuarios" />
         <activity android:name=".RegistroUsuarioActivity" />
         <activity

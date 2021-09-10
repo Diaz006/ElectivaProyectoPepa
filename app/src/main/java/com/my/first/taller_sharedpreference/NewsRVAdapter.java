@@ -4,9 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -31,17 +35,25 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull  NewsRVAdapter.ViewHolder holder, int position) {
-
+        Articles articles = articlesArrayList.get(position);
+        holder.subtitleTV.setText(articles.getDescription());
+        holder.titleTV.setText(articles.getTitle());
+        Picasso.get().load(articles.getUrlToImage()).into(holder.newsIV);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return articlesArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView titleTV, subtitleTV;
+        private ImageView newsIV;
         public ViewHolder(@NonNull  View itemView) {
             super(itemView);
+            titleTV = itemView.findViewById(R.id.idTVNewsHeading);
+            subtitleTV = itemView.findViewById(R.id.idTVSubTitle);
+            newsIV = itemView.findViewById(R.id.idIVNews);
         }
     }
 }

@@ -326,7 +326,6 @@ public class ActivityPrincipal extends AppCompatActivity {
         }
         //getMenuInflater().inflate(R.menu.activity_principal, menu);
         return true;
-
     }
 
 

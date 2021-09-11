@@ -130,12 +130,11 @@ public class HomeFragment extends Fragment {
         newsRV.setAdapter(newsRVAdapter);
         getNews();
         newsRVAdapter.notifyDataSetChanged();
-
         //Fin de codigo para agregar las noticias
 
         return root;
     }
-
+    //Wilson
     private void getNews()
     {
         loadingPB.setVisibility(View.VISIBLE);

@@ -93,6 +93,7 @@
     <string name="Boton_lugarvacunacion">Vaccination</string>
     <string name="Boton_certificadovacunacion">Vaccination Certificate</string>
 
+    <string name="menu_cerrarsesion">Log Out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hi Crack</string>
 

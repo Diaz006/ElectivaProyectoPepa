@@ -140,7 +140,7 @@ public class HomeFragment extends Fragment {
     {
         loadingPB.setVisibility(View.VISIBLE);
         articlesArrayList.clear();
-        String url = "https://newsapi.org/v2/top-headlines?country=mx&category=science&language=es&apikey=8df9385425ca463f9ddaf899a09aa2f2";
+        String url = "https://newsapi.org/v2/top-headlines?country=mx&category=science&language=es&q=covid&apikey=8df9385425ca463f9ddaf899a09aa2f2";
         String BASEurl = "https://newsapi.org";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASEurl)

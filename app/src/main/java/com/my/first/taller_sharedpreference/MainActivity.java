@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 usuario=edtusuario.getText().toString();
                 password=edtpassword.getText().toString();
                 if (!usuario.isEmpty() && !password.isEmpty()){
-                    validarUsuario("http://192.168.1.3/ProyectoAndroid2/validar_usuario.php"); //aqui ponle tu url de la carpeta htdoct Wilson
+                    validarUsuario("http://192.168.1.9/ProyectoAndroid2/validar_usuario.php"); //aqui ponle tu url de la carpeta htdoct Wilson
                    //Intent intent=new Intent(getApplicationContext(),ActivityPrincipal.class);
                     //startActivity(intent);
                     //finish();

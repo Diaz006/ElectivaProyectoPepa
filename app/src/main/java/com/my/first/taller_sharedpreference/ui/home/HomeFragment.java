@@ -100,13 +100,13 @@ public class HomeFragment extends Fragment {
 
         final Switch swi = root.findViewById(R.id.switema);
 
-        int theme = sp.getInt("Theme", 1);
-        if (theme==1){
-            swi.setChecked(false);
-        }else{
-            swi.setChecked(true);
-        }
-        swi.setOnClickListener(new View.OnClickListener() {
+        //int theme = sp.getInt("Theme", 1);
+        //if (theme==1){
+        //    swi.setChecked(false);
+        //}else{
+        //    swi.setChecked(true);
+        //}
+/*        swi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (swi.isChecked()){
@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment {
                 editor.commit();
                 ma.setDayNight();
             }
-        });
+        });*/
 
         //Codigo para agregar las noticias
         newsRV = root.findViewById(R.id.idRVNews);

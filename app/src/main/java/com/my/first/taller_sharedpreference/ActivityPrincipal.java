@@ -232,7 +232,7 @@ public class ActivityPrincipal extends AppCompatActivity {
 
     private void crearNotificacion(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+        builder.setSmallIcon(R.drawable.bgwcorronaapp);
         builder.setContentTitle("Nueva Noticia");
         builder.setContentText("El COVID 19 Ha Provocado un Cambio en la Vida Diaria");
         builder.setColor(Color.BLUE);
@@ -318,11 +318,15 @@ public class ActivityPrincipal extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        if (Usuario.equals("ADMIN")){
-            inflater.inflate(R.menu.activity_principal, menu);
-            inflater.inflate(R.menu.activity_usuarios, menu);
-        } else {
-            inflater.inflate(R.menu.activity_usuarios, menu);
+        try {
+            if (Usuario.equals("ADMIN")){
+                inflater.inflate(R.menu.activity_principal, menu);
+                inflater.inflate(R.menu.activity_usuarios, menu);
+            } else {
+                inflater.inflate(R.menu.activity_usuarios, menu);
+            }
+        }catch (Exception e){
+
         }
         //getMenuInflater().inflate(R.menu.activity_principal, menu);
         return true;

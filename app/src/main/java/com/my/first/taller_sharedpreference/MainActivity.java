@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         btnNuevoUsuario = findViewById(R.id.btnRegistrarse);
 
     }
-
+/*
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.menu_usuariosa:
@@ -263,14 +263,14 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.activity_principal, popup.getMenu());
         popup.show();
     }*/
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_usuarios, menu);
         //getMenuInflater().inflate(R.menu.activity_principal, menu);
         return true;
-    }
+    }*/
 
 
 }

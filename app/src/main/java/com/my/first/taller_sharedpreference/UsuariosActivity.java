@@ -50,7 +50,7 @@ public class UsuariosActivity extends AppCompatActivity {
         //usuarios.add(new UsuariosModelo("hola","0896756","bryan@gmail.com"));
         //usuarios = MostrarUsuario("http://192.168.100.7/ProyectoAndroid2/mostrar_usuarios.php");
         //Toast.makeText(getApplicationContext(),usuarios.get(0).getNombre(), Toast.LENGTH_SHORT).show();
-        URL="http://192.168.100.7/ProyectoAndroid2/mostrar_usuarios.php";
+        URL="http://192.168.1.3/ProyectoAndroid2/mostrar_usuarios.php";
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

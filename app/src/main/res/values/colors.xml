@@ -18,4 +18,11 @@
     <color name="Boton">#1976d2</color>
     <color name="Fondo">#202732</color>
     <color name="Eliminar">#FF5722</color>
+
+
+    <color name="black_shade_1">#292D36</color>
+    <color name="grey">#424242</color>
+    <color name="yellow">#ffa500</color>
+
+
 </resources>

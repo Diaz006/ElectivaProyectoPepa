@@ -22,7 +22,7 @@
     <string name="Saludo">Greetings</string>
     <string name="Teexto_accion">To close</string>
 
-    <string name="Configuracion">Setting</string>
+    <string name="Configuracion">Settings</string>
 
     <string name="guardar_Sesion">Save Session</string>
 
@@ -51,7 +51,7 @@
     <string name="Activity_IDIncorrecto">ID INCORRECT</string>
     <string name="Activity_SexoMasculino">MALE</string>
     <string name="Activity_SexoFemenino">FEMALE</string>
-    <string name="Activity_SexoOtro">Sex OTHER</string>
+    <string name="Activity_SexoOtro">OTHER</string>
     <string name="Activity_UsuarioActualizado">USER UPDATED SUCCESSFULLY</string>
     <string name="Activity_UsuarioAgregado">USER ADDED SUCCESSFULLY</string>
     <string name="Activity_UsuarioEliminado">USER WAS SUCCESSFULLY REMOVED</string>
@@ -69,11 +69,11 @@
     <string name="registro_Usuario">New User</string>
     <string name="administrar_Usuario">CRUD User</string>
 
-    <string name="registro_nombre">Name</string>
+    <string name="registro_nombre">First Name</string>
     <string name="registro_apellido">Last Name</string>
     <string name="registro_sexo">Sex</string>
     <string name="registro_masculino">Male</string>
-    <string name="registro_femenino">Feminine</string>
+    <string name="registro_femenino">Female</string>
     <string name="registro_otro">Other</string>
     <string name="registro_usuario">User</string>
     <string name="registro_telefono">Phone</string>
@@ -90,8 +90,8 @@
     <string name="Boton_actualizar">UPDATE</string>
     <string name="Boton_eliminar">REMOVE</string>
 
-    <string name="Boton_lugarvacunacion">Vacunación</string>
-    <string name="Boton_certificadovacunacion">Certificado Vacunación</string>
+    <string name="Boton_lugarvacunacion">Vaccination</string>
+    <string name="Boton_certificadovacunacion">Vaccination Certificate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hi Crack</string>

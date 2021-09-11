@@ -183,7 +183,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //base.agregarUsuario(edtnombre.getText().toString(),edtapellido.getText().toString(),Sexo,edtusuario.getText().toString(),edttelefono.getText().toString(),edtemail.getText().toString(),spinerCiudad.getSelectedItem().toString(),edtFechaNacimiento.getText().toString(),edtpasswordr.getText().toString());
-                ejecutarServicio("http://192.168.1.3/ProyectoAndroid2/insertar_Usuario.php");
+                ejecutarServicio("http://192.168.100.7/ProyectoAndroid2/insertar_Usuario.php");
                 //Snackbar.make(v, "Usuario Agregado Bien", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();
 

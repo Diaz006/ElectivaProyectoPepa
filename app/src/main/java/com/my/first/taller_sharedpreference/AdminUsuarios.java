@@ -75,7 +75,7 @@ public class AdminUsuarios extends AppCompatActivity {
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscarUsuario("http://192.168.1.3/ProyectoAndroid2/buscarusuario.php?codigo="+edtid.getText()+"");
+                buscarUsuario("http://192.168.100.7/ProyectoAndroid2/buscarusuario.php?codigo="+edtid.getText()+"");
             }
         });
 
@@ -85,7 +85,7 @@ public class AdminUsuarios extends AppCompatActivity {
                 /*base.editarUsuarios(Integer.parseInt(edtid.getText().toString()), edtnombre.getText().toString(), edtapellido.getText().toString(), Sexo, edtusuario.getText().toString(), edttelefono.getText().toString(), edtemail.getText().toString(), spinerCiudad.getSelectedItem().toString(), edtFechaNacimiento.getText().toString(), edtpasswordr.getText().toString());
                 Toast.makeText(getApplicationContext(),"SE ACTUALIZO CORRECTAMENTE",Toast.LENGTH_SHORT).show();
                 limpiar();*/
-                ejecutarServicio("http://192.168.1.3/ProyectoAndroid2/editar_usuario.php");
+                ejecutarServicio("http://192.168.100.7/ProyectoAndroid2/editar_usuario.php");
             }
         });
 
@@ -94,7 +94,7 @@ public class AdminUsuarios extends AppCompatActivity {
             public void onClick(View v) {
                 /*base.eliminarUsuario(edtid.getText().toString());
                 Toast.makeText(getApplicationContext(),"SE ELIMINO CORRECTAMENTE",Toast.LENGTH_SHORT).show();*/
-                eliminarUsuario("http://192.168.1.3/ProyectoAndroid2/eliminar_usuario.php");
+                eliminarUsuario("http://192.168.100.7/ProyectoAndroid2/eliminar_usuario.php");
             }
         });
         setDayNight();
